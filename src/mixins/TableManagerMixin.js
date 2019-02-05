@@ -49,10 +49,6 @@ export default {
         onGotoPage(page) {
             this.pagination.current_page = page
             this.fetchData()
-        },
-
-        isNumeric(number) {
-            return !isNaN(parseFloat(number)) && isFinite(number)
         }
     },
 
@@ -68,6 +64,10 @@ export default {
     },
 
     watch: {
+        sort_order() {
+            this.fetchData()
+        },
+
         sorted_by() {
             this.fetchData()
         }
