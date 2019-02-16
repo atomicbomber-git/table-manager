@@ -1,13 +1,16 @@
 import {get} from 'lodash'
 
 export default {
+    props: {
+        raw_url: String
+    },
+
     mounted() {
         this.fetchData()
     },
 
     data() {
         return {
-            raw_url: null,
             list: [],
             pagination: null,
             sorted_by: null,
