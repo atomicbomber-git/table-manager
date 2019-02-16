@@ -23,9 +23,9 @@ export default {
             axios
                 .get(this.url)
                 .then(response => {
-                    let { data, ...pagination } = response.data
+                    let { data, meta } = response.data
                     this.list = data
-                    this.pagination = pagination
+                    this.pagination = meta
                 })
         },
 
@@ -59,7 +59,7 @@ export default {
         url() {
             let page = get(this.pagination, 'current_page', 1)
             let sort_args = this.sorted_by ?
-                `${this.sorted_by}|${this.sort_order}` :
+                `${this.sort_order == 'desc' ? '-' : ''}${this.sorted_by}` :
                 ''
 
             return `${this.raw_url}?page=${page}&sort=${sort_args}`
