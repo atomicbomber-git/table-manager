@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav v-if="pagination">
     <ul class="pagination">
       <li class="page-item" :class="{disabled: page_from === 1}" @click="onPrevButtonClick">
         <a class="page-link" href="#" tabindex="-1">Sebelum</a>
